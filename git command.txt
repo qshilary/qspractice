@@ -1,0 +1,34 @@
+1.	关联远程库 git remote add origin git@github.com:michaelliao/learngit.git
+2.	git push origin master  git push <远程库> <本地分支> <远程分支> 
+    git push <远程主机名> <本地分支名>  <远程分支名>
+	2.1 git push origin master
+	如果远程分支被省略，如上则表示将本地分支推送到与之存在追踪关系的远程分支（通常两者同名），
+	如果该远程分支不存在，则会被新建
+	2.2 git push origin ：refs/for/master 
+　　  如果省略本地分支名，则表示删除指定的远程分支，因为这等同于推送一个空的本地分支到远程分支，等同于 git push origin --delete master
+	refs/for 的意义在于我们提交代码到服务器之后是需要经过code review 之后才能进行merge的，而refs/heads 不需要
+3.git remote -v查看远程版本库信息
+4.git pull origin master 
+5.git remote rm origin删除远程git仓库
+6.$ git pull origin master --allow-unrelated-histories
+7.git branch 查看本地分支
+8.git branch -a查看远程分支
+eqiasui@CN00214190 MINGW64 ~/Documents/practice2/qspractice (temp)
+$ git branch -a
+  master
+* temp
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/master
+  remotes/origin/temp
+9./*1.新建分支*/
+git checkout -b temp              //新建分支并切换到temp分支
+git push origin temp:temp         //将代码push到temp分支
+10./*2.删除主分支*/
+git push origin --delete master   //删除远端主分支
+git branch -d master              //删除本地主分支
+11./*3.新建主分支*/
+git checkout -b master            //新建主分支并切换到主分支
+git push origin master            //提交主分支
+12./*4.删除暂存分支*/
+git branch -d temp
+git push origin --delete temp
